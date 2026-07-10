@@ -9,8 +9,10 @@ service cloud.firestore {
         && request.resource.data.email is string
         && request.resource.data.email.size() > 3
         && request.resource.data.email.size() < 255
+        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+[.][^@\\s]+$')
         && request.resource.data.source is string
-        && request.resource.data.source in ['newsletter', 'waitlist:mecha-chameleon'];
+        && request.resource.data.source in ['newsletter', 'waitlist:mecha-chameleon']
+        && request.resource.data.createdAt is timestamp;
     }
     // Everything else denied.
     match /{document=**} {
