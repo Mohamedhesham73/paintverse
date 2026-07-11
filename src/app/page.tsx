@@ -1,11 +1,12 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
-import { FeaturedCollections } from "@/components/home/FeaturedCollections";
+import { Collections } from "@/components/home/Collections";
+import { LatestDrop } from "@/components/home/LatestDrop";
 import { HowItWorks } from "@/components/home/HowItWorks";
-import { GalleryPreview } from "@/components/home/GalleryPreview";
+import { Community } from "@/components/home/Community";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
-import { NewsletterCTA } from "@/components/home/NewsletterCTA";
+import { ContactCTA } from "@/components/home/ContactCTA";
 
 export default function Home() {
   return (
@@ -13,11 +14,12 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <FeaturedCollections />
+        <Collections />
+        <LatestDrop />
         <HowItWorks />
-        <GalleryPreview />
+        <Community />
         <AboutTeaser />
-        <NewsletterCTA />
+        <ContactCTA />
       </main>
       <Footer />
     </>

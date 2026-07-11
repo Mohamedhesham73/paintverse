@@ -1,16 +1,22 @@
-import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 
 export function AboutTeaser() {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-20 text-center">
-      <Badge>Our story</Badge>
-      <h2 className="mt-4 text-3xl font-bold sm:text-4xl">The experience is the product.</h2>
-      <p className="mx-auto mt-4 max-w-2xl text-white/60">
-        PaintVerse combines premium figure design, beautiful packaging, and a modern digital experience —
-        so collectors don&apos;t just buy figures, they create them.
+    <section className="mx-auto max-w-4xl px-6 py-28 text-center">
+      <Badge className="border-accent/40 bg-accent/10 text-accent-300">Our world</Badge>
+      <h2 className="mt-6 text-4xl font-bold text-balance sm:text-5xl">
+        A lifestyle brand for people who collect and create.
+      </h2>
+      <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-mute">
+        PaintVerse blends fandom, craftsmanship and modern design into pieces worthy of display. Not mass-produced
+        clutter — collectibles, kits and lighting made for the shelf you actually show people.
       </p>
-      <div className="mt-8"><Button href="/about" variant="ghost">More about PaintVerse</Button></div>
+      <div className="mt-9">
+        <Button href="/about" variant="ghost">
+          The PaintVerse story
+        </Button>
+      </div>
     </section>
   );
 }

@@ -1,18 +1,22 @@
 export const SITE = {
   name: "PaintVerse",
-  tagline: "Paint Your Universe",
+  tagline: "Where Collectors Create",
   description:
-    "Premium DIY collectible kits — unpainted figures with everything you need to bring them to life.",
+    "Premium collectibles, DIY kits and limited creations designed for people who love to collect, create and display.",
   url: "https://paintverse.example", // replace with real domain at launch
-  contactEmail: "hello@paintverse.example",
+  contactEmail: "Esmailahmed266@gmail.com",
+  whatsapp: {
+    number: "201002180484", // wa.me format, no + or spaces
+    display: "+20 100 218 0484",
+  },
   socials: [
     { label: "Instagram", href: "https://instagram.com/" },
     { label: "TikTok", href: "https://tiktok.com/" },
-    { label: "YouTube", href: "https://youtube.com/" },
+    { label: "WhatsApp", href: "https://wa.me/201002180484" },
   ],
   nav: [
-    { label: "Shop", href: "/shop" },
-    { label: "Gallery", href: "/gallery" },
+    { label: "Collections", href: "/collections" },
+    { label: "Community", href: "/community" },
     { label: "About", href: "/about" },
   ],
   legal: [

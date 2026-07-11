@@ -1,11 +1,22 @@
 import { Badge } from "./Badge";
 
-export function SectionHeading({ label, title, subtitle }: { label?: string; title: string; subtitle?: string }) {
+export function SectionHeading({
+  label,
+  title,
+  subtitle,
+  align = "center",
+}: {
+  label?: string;
+  title: string;
+  subtitle?: string;
+  align?: "center" | "left";
+}) {
+  const wrap = align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl";
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div className={wrap}>
       {label && <Badge>{label}</Badge>}
-      <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{title}</h2>
-      {subtitle && <p className="mt-3 text-white/60">{subtitle}</p>}
+      <h2 className="mt-5 text-4xl font-bold text-balance sm:text-5xl">{title}</h2>
+      {subtitle && <p className="mt-4 text-mute text-balance">{subtitle}</p>}
     </div>
   );
 }
