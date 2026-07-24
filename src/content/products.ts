@@ -49,7 +49,6 @@ export const PRODUCTS: Product[] = [
     specs: [
       { label: "Type", value: "DIY paint kit" },
       { label: "Finish", value: "Unpainted, primed" },
-      { label: "Height", value: "≈ 9 cm" },
       { label: "Difficulty", value: "Beginner friendly" },
       { label: "Best for", value: "First-time painters & collectors" },
     ],
@@ -68,14 +67,14 @@ export const PRODUCTS: Product[] = [
     priceEgp: 1000,
     tagline: "The M3 rear end, on your wall.",
     blurb:
-      "A hand-finished BMW M3 rear in racing green — half sculpture, half key holder.",
+      "A racing-green BMW M3 rear — half sculpture, half key holder.",
     story:
       "Badge, diffuser and quad tips, all captured in 3D and hung on your wall in that unmistakable racing green. Built-in hooks turn it into a statement key holder by the door, or pure petrolhead art above the desk. It's the detail that makes people stop and look twice.",
     heroImage: "/brand/bmw-m3-lifestyle.jpeg",
     images: ["/brand/bmw-m3-lifestyle.jpeg", "/brand/bmw-m3.jpeg"],
     specs: [
       { label: "Model", value: "BMW M3 (rear)" },
-      { label: "Finish", value: "Hand-painted racing green" },
+      { label: "Material", value: "Racing-green PLA+ plastic" },
       { label: "Mount", value: "Wall-mounted" },
       { label: "Function", value: "Wall decor + 5 key hooks" },
       { label: "Best for", value: "Entryway / desk wall" },
@@ -91,12 +90,12 @@ export const PRODUCTS: Product[] = [
       "A warm-LED shadow lamp that throws Luffy's ‘Wanted’ silhouette across the room.",
     story:
       "Part lamp, part poster, part statement. Switch it on in a low-lit room and Luffy's ‘Dead or Alive’ bounty spills across your wall as a giant living shadow. It is ambient lighting for people who decorate with their fandom, not around it.",
-    heroImage: "/brand/luffy-lamp.png",
-    images: ["/brand/luffy-lamp.png"],
+    heroImage: "/brand/luffy-lamp.jpeg",
+    images: ["/brand/luffy-lamp.jpeg", "/brand/luffy-lamp1.jpeg"],
     specs: [
       { label: "Theme", value: "One Piece — Luffy ‘Wanted’" },
       { label: "Light", value: "Warm white LED" },
-      { label: "Power", value: "USB powered" },
+      { label: "Power", value: "2 × AA batteries" },
       { label: "Effect", value: "Wall shadow projection" },
       { label: "Best in", value: "Low light" },
     ],
