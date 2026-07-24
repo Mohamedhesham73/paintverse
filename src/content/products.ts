@@ -1,4 +1,4 @@
-export type Category = "DIY Kit" | "Collectible" | "Lighting";
+export type Category = "DIY Kit" | "Collectible" | "Lighting" | "Wall Decor";
 
 export interface Spec {
   label: string;
@@ -11,6 +11,8 @@ export interface Product {
   category: Category;
   priceEgp: number;
   tagline: string;
+  /** Optional note shown under the price (e.g. what's included). */
+  priceNote?: string;
   blurb: string;
   story: string;
   heroImage: string; // path under /public
@@ -26,12 +28,13 @@ export const PRODUCTS: Product[] = [
     slug: "mecha-chameleon",
     name: "Mecha Chameleon",
     category: "DIY Kit",
-    priceEgp: 250,
+    priceEgp: 300,
     tagline: "The blank canvas collectible.",
+    priceNote: "Includes 3 paint colours of your choice — mix them for more.",
     blurb:
       "A premium unpainted figure and everything you need to make it unmistakably yours.",
     story:
-      "Mecha Chameleon is where every PaintVerse story begins. You get a clean, characterful figure and a curated starter kit — then the rest is you. Prime it, paint it, seal it, and put something on your shelf that no one else on earth owns. The experience is the product.",
+      "Mecha Chameleon is where every PaintVerse story begins. You get a clean, characterful figure and a curated starter kit — pick any 3 colours and mix your way to the rest. Prime it, paint it, seal it, and put something on your shelf that no one else on earth owns. The experience is the product.",
     heroImage: "/brand/pose-1.png",
     images: [
       "/brand/pose-1.png",
@@ -59,30 +62,30 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "miles-morales-spider-man",
-    name: "Miles Morales — Spider-Man",
-    category: "Collectible",
-    priceEgp: 400,
-    tagline: "Hand-finished shelf-sitter.",
+    slug: "bmw-m3-wall-decor",
+    name: "BMW M3 — 3D Wall Decor",
+    category: "Wall Decor",
+    priceEgp: 1000,
+    tagline: "The M3 rear end, on your wall.",
     blurb:
-      "A hand-painted Miles Morales, poised on the edge of your shelf like he owns it.",
+      "A hand-finished BMW M3 rear in racing green — half sculpture, half key holder.",
     story:
-      "Caught mid-thought on the ledge, this Miles Morales piece is finished by hand and built to sit on the edge of a shelf, monitor, or desk. It is the kind of detail that quietly tells everyone who walks in exactly what you're into.",
-    heroImage: "/brand/spiderman.png",
-    images: ["/brand/spiderman.png"],
+      "Badge, diffuser and quad tips, all captured in 3D and hung on your wall in that unmistakable racing green. Built-in hooks turn it into a statement key holder by the door, or pure petrolhead art above the desk. It's the detail that makes people stop and look twice.",
+    heroImage: "/brand/bmw-m3-lifestyle.jpeg",
+    images: ["/brand/bmw-m3-lifestyle.jpeg", "/brand/bmw-m3.jpeg"],
     specs: [
-      { label: "Character", value: "Miles Morales" },
-      { label: "Pose", value: "Seated shelf-edge" },
-      { label: "Finish", value: "Hand-painted" },
-      { label: "Height", value: "≈ 12 cm" },
-      { label: "Display", value: "Shelf / desk edge" },
+      { label: "Model", value: "BMW M3 (rear)" },
+      { label: "Finish", value: "Hand-painted racing green" },
+      { label: "Mount", value: "Wall-mounted" },
+      { label: "Function", value: "Wall decor + 5 key hooks" },
+      { label: "Best for", value: "Entryway / desk wall" },
     ],
   },
   {
     slug: "monkey-d-luffy-shadow-lamp",
     name: "Monkey D. Luffy — Shadow Lamp",
     category: "Lighting",
-    priceEgp: 500,
+    priceEgp: 900,
     tagline: "Cast the Wanted poster on your wall.",
     blurb:
       "A warm-LED shadow lamp that throws Luffy's ‘Wanted’ silhouette across the room.",

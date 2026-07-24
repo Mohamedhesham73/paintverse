@@ -7,7 +7,7 @@ export interface GalleryItem {
 }
 
 export const GALLERY: GalleryItem[] = [
-  { id: "g1", title: "Miles on the ledge", creator: "PaintVerse Studio", image: "/brand/spiderman.png", featured: true },
+  { id: "g1", title: "M3 on the wall", creator: "PaintVerse Studio", image: "/brand/bmw-m3-lifestyle.jpeg", featured: true },
   { id: "g2", title: "Luffy after dark", creator: "PaintVerse Studio", image: "/brand/luffy-lamp.png", featured: true },
   { id: "g3", title: "Blank & ready", creator: "PaintVerse Studio", image: "/brand/pose-3.png", featured: false },
   { id: "g4", title: "Pose study I", creator: "PaintVerse Studio", image: "/brand/pose-5.png", featured: false },

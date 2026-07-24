@@ -47,8 +47,8 @@ export function Hero() {
             className="photo-fade relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10"
           >
             <Image
-              src="/brand/spiderman.png"
-              alt="PaintVerse hand-finished collectible"
+              src="/brand/bmw-m3-lifestyle.jpeg"
+              alt="PaintVerse BMW M3 3D wall decor"
               fill
               priority
               className="object-cover"

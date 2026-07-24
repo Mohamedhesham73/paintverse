@@ -16,6 +16,7 @@ export const SITE = {
   ],
   nav: [
     { label: "Collections", href: "/collections" },
+    { label: "Color Lab", href: "/color-lab" },
     { label: "Community", href: "/community" },
     { label: "About", href: "/about" },
   ],
