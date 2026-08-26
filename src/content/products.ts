@@ -1,4 +1,6 @@
-export type Category = "DIY Kit" | "Lighting" | "Wall Decor" | "Desk Decor" | "Incense";
+export type Category = "DIY Kit" | "Lighting" | "Wall Decor" | "Accessories" | "Incense";
+
+export const CATEGORIES: Category[] = ["DIY Kit", "Wall Decor", "Lighting", "Accessories", "Incense"];
 
 export interface Spec {
   label: string;
@@ -13,8 +15,8 @@ export interface Product {
   tagline: string;
   /** Optional note shown under the price (e.g. what's included / ships white). */
   priceNote?: string;
-  /** Optional colour / variant options shown as chips. */
-  colors?: string[];
+  /** Optional variants; selecting one swaps the gallery to its own images (when provided). */
+  variants?: { name: string; images?: string[] }[];
   blurb: string;
   story: string;
   heroImage: string; // path under /public
@@ -32,7 +34,10 @@ export const PRODUCTS: Product[] = [
     category: "Wall Decor",
     priceEgp: 1100,
     tagline: "Your favourite rear end, on the wall.",
-    colors: ["BMW M3 · Racing Green", "Porsche 911 GT3 · Graphite"],
+    variants: [
+      { name: "BMW M3 · Racing Green", images: ["/brand/bmw-m3-lifestyle.jpeg", "/brand/bmw-m3.jpeg"] },
+      { name: "Porsche 911 GT3 · Graphite", images: ["/brand/porsche-gt3-lifestyle.jpeg", "/brand/porsche-gt3.jpeg"] },
+    ],
     blurb: "A supercar rear captured in 3D — half sculpture, half key holder.",
     story:
       "Badge, diffuser, wing and quad tips, all captured in 3D and hung on your wall. Built-in hooks turn it into a statement key holder by the door, or pure petrolhead art above the desk. Choose your machine — the racing-green BMW M3 or the graphite Porsche 911 GT3 — same price, same wow factor.",
@@ -93,12 +98,16 @@ export const PRODUCTS: Product[] = [
     priceEgp: 300,
     tagline: "Ships white. You bring the colour.",
     priceNote: "Ships white & unpainted — includes 3 colours of your choice. Paint any of the girls.",
-    colors: ["Blossom · Red", "Bubbles · Blue", "Buttercup · Green"],
+    variants: [
+      { name: "Blossom · Red", images: ["/brand/red.png"] },
+      { name: "Bubbles · Blue", images: ["/brand/blue.png"] },
+      { name: "Buttercup · Green", images: ["/brand/green.png"] },
+    ],
     blurb: "A blank Powerpuff figure that ships pure white — paint Blossom, Bubbles or Buttercup yourself.",
     story:
-      "This one arrives completely white and unpainted — the fun is making it yours. Paint it as Blossom in red, Bubbles in blue, or Buttercup in green (or go completely off-script). It comes with any 3 paint colours of your choice, and our Color Lab shows you how to mix the rest.",
+      "This one arrives completely white and unpainted — the fun is making it yours. It ships white; click a girl above to preview how she looks painted (red Blossom, blue Bubbles, green Buttercup) — or go completely off-script. It comes with any 3 paint colours of your choice, and our Color Lab shows you how to mix the rest.",
     heroImage: "/brand/red.png",
-    images: ["/brand/red1.png", "/brand/red.png", "/brand/blue.png", "/brand/green.png"],
+    images: ["/brand/red1.png"],
     specs: [
       { label: "Type", value: "DIY paint kit" },
       { label: "Finish", value: "Ships white — you paint it" },
@@ -136,10 +145,13 @@ export const PRODUCTS: Product[] = [
   {
     slug: "toothless-phone-holder",
     name: "Toothless & Light Fury — Phone Holder",
-    category: "Desk Decor",
+    category: "Accessories",
     priceEgp: 400,
     tagline: "A dragon that holds your phone.",
-    colors: ["Night Fury · Black", "Light Fury · White"],
+    variants: [
+      { name: "Night Fury · Black", images: ["/brand/toothless.png"] },
+      { name: "Light Fury · White", images: ["/brand/light-fury.png"] },
+    ],
     blurb: "The Night Fury (and his Light Fury) reimagined as a desk phone stand.",
     story:
       "Toothless curls up on your desk and props your phone at the perfect angle — in landscape for videos or portrait for scrolling. Pick the black Night Fury or the white Light Fury to match your setup.",
@@ -156,18 +168,22 @@ export const PRODUCTS: Product[] = [
   {
     slug: "spongebob-money-card-holder",
     name: "SpongeBob Money — Card Holder",
-    category: "Desk Decor",
+    category: "Accessories",
     priceEgp: 300,
-    tagline: "Bikini Bottom cash for your cards.",
-    colors: ["Green", "Blue", "Pink"],
-    blurb: "The SpongeBob dollar, reborn as a card and cash holder for your desk.",
+    tagline: "Your bank card, hidden in a SpongeBob dollar.",
+    variants: [
+      { name: "Green", images: ["/brand/sponge-visa.png", "/brand/sponge-visa1.png"] },
+      { name: "Blue" },
+      { name: "Pink" },
+    ],
+    blurb: "A slim card holder shaped like the SpongeBob dollar — slide your Visa or bank card inside and pay with it anywhere.",
     story:
-      "A playful nod to Bikini Bottom currency that actually earns its keep — slot your cards or notes into the back and let the bill sit pretty on your desk or shelf. Available in green, blue or pink.",
+      "It looks like Bikini Bottom money, but it holds your real money. Slot your Visa or bank card into it and the card stays tucked inside while you carry it and pay wherever you go — no separate wallet needed. A fun everyday-carry piece that people will actually ask about at the till. Comes in green, blue or pink.",
     heroImage: "/brand/sponge-visa.png",
     images: ["/brand/sponge-visa.png", "/brand/sponge-visa1.png"],
     specs: [
+      { label: "Function", value: "Holds your Visa / bank card — pay with it anywhere" },
       { label: "Style", value: "SpongeBob dollar bill" },
-      { label: "Function", value: "Card / cash holder" },
       { label: "Colours", value: "Green / Blue / Pink" },
       { label: "Material", value: "PLA+ plastic" },
     ],

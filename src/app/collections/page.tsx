@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProductCard } from "@/components/product/ProductCard";
-import { PRODUCTS } from "@/content/products";
+import { CollectionsBrowser } from "@/components/product/CollectionsBrowser";
 
 export const metadata: Metadata = {
   title: "Collections",
-  description: "Premium collectibles, DIY paint kits and shadow lamps from PaintVerse.",
+  description: "Premium collectibles, DIY paint kits, wall decor, shadow lamps and incense holders from PaintVerse.",
 };
 
 export default function CollectionsPage() {
@@ -18,12 +17,10 @@ export default function CollectionsPage() {
         <SectionHeading
           label="Collections"
           title="The full range."
-          subtitle="Every PaintVerse piece is made to be displayed. Order any of them straight from WhatsApp."
+          subtitle="Filter by category, and order any piece straight from WhatsApp."
         />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {PRODUCTS.map((p, i) => (
-            <ProductCard key={p.slug} product={p} priority={i === 0} />
-          ))}
+        <div className="mt-14">
+          <CollectionsBrowser />
         </div>
       </main>
       <Footer />

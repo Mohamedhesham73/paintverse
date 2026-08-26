@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ProductGallery } from "./ProductGallery";
 import { ProductCard } from "./ProductCard";
@@ -10,6 +13,11 @@ import { relatedProducts, type Product } from "@/content/products";
 
 export function ProductDetail({ product }: { product: Product }) {
   const related = relatedProducts(product.slug);
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const activeVariant = product.variants?.find((v) => v.name === selected);
+  const currentImages = activeVariant?.images?.length ? activeVariant.images : product.images;
+  const galleryKey = selected ?? "base";
 
   return (
     <div className="mx-auto max-w-7xl px-6 pt-32 pb-8">
@@ -18,7 +26,8 @@ export function ProductDetail({ product }: { product: Product }) {
       </Link>
 
       <div className="mt-8 grid gap-12 lg:grid-cols-2">
-        <ProductGallery images={product.images} alt={product.name} />
+        {/* key forces the gallery to reset to the first image when the variant changes */}
+        <ProductGallery key={galleryKey} images={currentImages} alt={product.name} />
 
         <div className="lg:pt-4">
           <Badge className="border-accent/40 bg-accent/10 text-accent-300">{product.category}</Badge>
@@ -37,20 +46,32 @@ export function ProductDetail({ product }: { product: Product }) {
             )}
           </div>
 
-          {product.colors && product.colors.length > 0 && (
+          {product.variants && product.variants.length > 0 && (
             <div className="mt-6">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-mute">Options</p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {product.colors.map((c) => (
-                  <span
-                    key={c}
-                    className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-sm text-white/85"
-                  >
-                    {c}
-                  </span>
-                ))}
+                {product.variants.map((v) => {
+                  const active = selected === v.name;
+                  return (
+                    <button
+                      key={v.name}
+                      type="button"
+                      onClick={() => setSelected(active ? null : v.name)}
+                      aria-pressed={active}
+                      className={`rounded-full border px-3 py-1.5 text-sm transition ${
+                        active
+                          ? "border-accent bg-accent/15 text-white"
+                          : "border-white/15 bg-white/[0.04] text-white/85 hover:border-white/40"
+                      }`}
+                    >
+                      {v.name}
+                    </button>
+                  );
+                })}
               </div>
-              <p className="mt-2 text-xs text-mute">Tell us which option you&apos;d like in your WhatsApp message.</p>
+              <p className="mt-2 text-xs text-mute">
+                Click an option to preview it, then tell us your pick in your WhatsApp message.
+              </p>
             </div>
           )}
 
@@ -58,14 +79,16 @@ export function ProductDetail({ product }: { product: Product }) {
             <Button href={orderLink(product.name)} external variant="whatsapp">
               Order on WhatsApp
             </Button>
-            <Button href={`mailto:${SITE.contactEmail}?subject=${encodeURIComponent(`Order: ${product.name}`)}`} variant="ghost">
+            <Button
+              href={`mailto:${SITE.contactEmail}?subject=${encodeURIComponent(`Order: ${product.name}`)}`}
+              variant="ghost"
+            >
               Email us
             </Button>
           </div>
 
           <p className="mt-8 leading-relaxed text-white/70">{product.story}</p>
 
-          {/* Specifications */}
           <div className="mt-10">
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-mute">Specifications</h2>
             <dl className="mt-4 divide-y divide-white/[0.06] border-y border-white/[0.06]">
@@ -78,7 +101,6 @@ export function ProductDetail({ product }: { product: Product }) {
             </dl>
           </div>
 
-          {/* Inside the box */}
           {product.insideBox && product.insideBox.length > 0 && (
             <div className="mt-10">
               <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-mute">Inside the box</h2>
@@ -95,7 +117,6 @@ export function ProductDetail({ product }: { product: Product }) {
         </div>
       </div>
 
-      {/* Related */}
       {related.length > 0 && (
         <div className="mt-28">
           <h2 className="font-display text-2xl font-bold">You may also like</h2>
