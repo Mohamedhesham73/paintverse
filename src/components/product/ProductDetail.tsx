@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ProductGallery } from "./ProductGallery";
 import { ProductCard } from "./ProductCard";
 import { Badge } from "@/components/ui/Badge";
@@ -13,11 +14,10 @@ import { relatedProducts, startingPriceEgp, isFromPrice, type Product } from "@/
 
 export function ProductDetail({ product }: { product: Product }) {
   const related = relatedProducts(product.slug);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [view, setView] = useState<{ key: string; images: string[] } | null>(null);
 
-  const activeVariant = product.variants?.find((v) => v.name === selected);
-  const currentImages = activeVariant?.images?.length ? activeVariant.images : product.images;
-  const galleryKey = selected ?? "base";
+  const currentImages = view?.images ?? product.images;
+  const galleryKey = view?.key ?? "base";
 
   return (
     <div className="mx-auto max-w-7xl px-6 pt-32 pb-8">
@@ -58,18 +58,44 @@ export function ProductDetail({ product }: { product: Product }) {
             )}
             {product.packages && product.packages.length > 0 && (
               <div className="mt-4 overflow-hidden rounded-2xl border border-white/[0.08]">
-                {product.packages.map((pk) => (
-                  <div
-                    key={pk.name}
-                    className="flex items-center justify-between gap-4 border-b border-white/[0.06] px-4 py-3 text-sm last:border-b-0"
-                  >
-                    <span className="text-white">
-                      {pk.name}
-                      {pk.pieces ? <span className="text-mute"> · {pk.pieces} pcs</span> : null}
-                    </span>
-                    <span className="font-semibold">{formatPrice(pk.priceEgp)}</span>
-                  </div>
-                ))}
+                {product.packages.map((pk) => {
+                  const active = view?.key === pk.name;
+                  const rowClass = `flex w-full items-center gap-3 border-b border-white/[0.06] px-4 py-3 text-left text-sm last:border-b-0 ${
+                    active ? "bg-accent/10" : pk.image ? "hover:bg-white/[0.03]" : ""
+                  }`;
+                  const inner = (
+                    <>
+                      {pk.image && (
+                        <span
+                          className={`relative h-9 w-9 shrink-0 overflow-hidden rounded-md border ${
+                            active ? "border-accent" : "border-white/10"
+                          }`}
+                        >
+                          <Image src={pk.image} alt={pk.name} fill className="object-cover" sizes="36px" />
+                        </span>
+                      )}
+                      <span className="text-white">
+                        {pk.name}
+                        {pk.pieces ? <span className="text-mute"> · {pk.pieces} pcs</span> : null}
+                      </span>
+                      <span className="ml-auto font-semibold">{formatPrice(pk.priceEgp)}</span>
+                    </>
+                  );
+                  return pk.image ? (
+                    <button
+                      key={pk.name}
+                      type="button"
+                      onClick={() => setView(active ? null : { key: pk.name, images: [pk.image!] })}
+                      className={rowClass}
+                    >
+                      {inner}
+                    </button>
+                  ) : (
+                    <div key={pk.name} className={rowClass}>
+                      {inner}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -79,12 +105,14 @@ export function ProductDetail({ product }: { product: Product }) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-mute">Options</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {product.variants.map((v) => {
-                  const active = selected === v.name;
+                  const active = view?.key === v.name;
                   return (
                     <button
                       key={v.name}
                       type="button"
-                      onClick={() => setSelected(active ? null : v.name)}
+                      onClick={() =>
+                        setView(active ? null : { key: v.name, images: v.images?.length ? v.images : product.images })
+                      }
                       aria-pressed={active}
                       className={`rounded-full border px-3 py-1.5 text-sm transition ${
                         active

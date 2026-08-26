@@ -11,6 +11,7 @@ export interface Package {
   name: string;
   pieces?: number;
   priceEgp: number;
+  image?: string; // photo of this specific package
 }
 
 export interface Product {
@@ -74,7 +75,7 @@ export const PRODUCTS: Product[] = [
     tagline: "The blank canvas collectible.",
     priceNote: "For every bundle you choose which poses you want and which paint colours you get — then mix for even more.",
     packages: [
-      { name: "Bundle 1", pieces: 3, priceEgp: 300 },
+      { name: "Bundle 1", pieces: 3, priceEgp: 300, image: "/brand/package1.jpeg" },
       { name: "Bundle 2", pieces: 5, priceEgp: 400 },
       { name: "Bundle 3", pieces: 8, priceEgp: 500 },
     ],
@@ -83,6 +84,7 @@ export const PRODUCTS: Product[] = [
       "Mecha Chameleon is where every PaintVerse story begins. You get clean, characterful figures and a curated starter kit — pick the poses you want and the paint colours you like, then mix your way to the rest. Prime it, paint it, seal it, and put something on your shelf that no one else on earth owns. Grab a bigger bundle to paint with friends or gift the extras.",
     heroImage: "/brand/pose-1.png",
     images: [
+      "/brand/package1.jpeg",
       "/brand/pose-1.png",
       "/brand/pose-2.png",
       "/brand/pose-3.png",
