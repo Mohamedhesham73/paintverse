@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { Product } from "@/content/products";
+import { startingPriceEgp, isFromPrice, type Product } from "@/content/products";
 import { formatPrice } from "@/lib/format";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
@@ -25,7 +25,14 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             <h3 className="font-display text-xl">{product.name}</h3>
             <p className="mt-1 text-sm text-mute">{product.tagline}</p>
           </div>
-          <span className="shrink-0 text-sm font-semibold text-white">{formatPrice(product.priceEgp)}</span>
+          <div className="shrink-0 text-right">
+            <span className="text-sm font-semibold text-white">
+              {isFromPrice(product) ? `From ${formatPrice(startingPriceEgp(product))}` : formatPrice(product.priceEgp)}
+            </span>
+            {product.compareAtEgp && (
+              <span className="ml-2 text-xs text-mute line-through">{formatPrice(product.compareAtEgp)}</span>
+            )}
+          </div>
         </div>
       </div>
     </Link>

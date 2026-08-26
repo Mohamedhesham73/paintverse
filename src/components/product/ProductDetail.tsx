@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { formatPrice } from "@/lib/format";
 import { orderLink } from "@/lib/whatsapp";
 import { SITE } from "@/content/site";
-import { relatedProducts, type Product } from "@/content/products";
+import { relatedProducts, startingPriceEgp, isFromPrice, type Product } from "@/content/products";
 
 export function ProductDetail({ product }: { product: Product }) {
   const related = relatedProducts(product.slug);
@@ -35,7 +35,19 @@ export function ProductDetail({ product }: { product: Product }) {
           <p className="mt-4 text-lg text-mute">{product.blurb}</p>
 
           <div className="mt-8">
-            <span className="text-3xl font-bold">{formatPrice(product.priceEgp)}</span>
+            <div className="flex flex-wrap items-baseline gap-3">
+              <span className="text-3xl font-bold">
+                {isFromPrice(product) ? `From ${formatPrice(startingPriceEgp(product))}` : formatPrice(product.priceEgp)}
+              </span>
+              {product.compareAtEgp && (
+                <>
+                  <span className="text-lg text-mute line-through">{formatPrice(product.compareAtEgp)}</span>
+                  <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-semibold text-accent-300">
+                    Save {formatPrice(product.compareAtEgp - product.priceEgp)}
+                  </span>
+                </>
+              )}
+            </div>
             {product.priceNote && (
               <p className="mt-2 text-sm text-mute">
                 {product.priceNote}{" "}
@@ -43,6 +55,22 @@ export function ProductDetail({ product }: { product: Product }) {
                   See the mixing guide
                 </Link>
               </p>
+            )}
+            {product.packages && product.packages.length > 0 && (
+              <div className="mt-4 overflow-hidden rounded-2xl border border-white/[0.08]">
+                {product.packages.map((pk) => (
+                  <div
+                    key={pk.name}
+                    className="flex items-center justify-between gap-4 border-b border-white/[0.06] px-4 py-3 text-sm last:border-b-0"
+                  >
+                    <span className="text-white">
+                      {pk.name}
+                      {pk.pieces ? <span className="text-mute"> · {pk.pieces} pcs</span> : null}
+                    </span>
+                    <span className="font-semibold">{formatPrice(pk.priceEgp)}</span>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
 
