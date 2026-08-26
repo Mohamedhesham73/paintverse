@@ -72,7 +72,7 @@ export const PRODUCTS: Product[] = [
     category: "DIY Kit",
     priceEgp: 300,
     tagline: "The blank canvas collectible.",
-    priceNote: "Every bundle includes 3 paint colours of your choice — mix them for more.",
+    priceNote: "For every bundle you choose which poses you want and which paint colours you get — then mix for even more.",
     packages: [
       { name: "Bundle 1", pieces: 3, priceEgp: 300 },
       { name: "Bundle 2", pieces: 5, priceEgp: 400 },
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     ],
     blurb: "A premium unpainted figure and everything you need to make it unmistakably yours.",
     story:
-      "Mecha Chameleon is where every PaintVerse story begins. You get clean, characterful figures and a curated starter kit — pick any 3 colours and mix your way to the rest. Prime it, paint it, seal it, and put something on your shelf that no one else on earth owns. Grab a bigger bundle to paint with friends or gift the extras.",
+      "Mecha Chameleon is where every PaintVerse story begins. You get clean, characterful figures and a curated starter kit — pick the poses you want and the paint colours you like, then mix your way to the rest. Prime it, paint it, seal it, and put something on your shelf that no one else on earth owns. Grab a bigger bundle to paint with friends or gift the extras.",
     heroImage: "/brand/pose-1.png",
     images: [
       "/brand/pose-1.png",
@@ -102,7 +102,6 @@ export const PRODUCTS: Product[] = [
       "Premium unpainted collectible figures (3, 5 or 8)",
       "Three paint pots (colours of your choice)",
       "One quality brush",
-      "Instruction card with QR code linking to tutorials",
       "Premium protective packaging",
     ],
   },
@@ -133,7 +132,6 @@ export const PRODUCTS: Product[] = [
       "One white, unpainted Powerpuff figure",
       "Three paint pots (colours of your choice)",
       "One quality brush",
-      "Instruction card with QR code linking to tutorials",
       "Premium protective packaging",
     ],
   },
@@ -286,6 +284,10 @@ export const PRODUCTS: Product[] = [
     category: "Incense",
     priceEgp: 250,
     tagline: "Mid-strike, mid-burn.",
+    variants: [
+      { name: "Black", images: ["/brand/incense4.jpeg"] },
+      { name: "White" },
+    ],
     blurb: "A samurai lunges into a strike, your incense stick held out like a long blade.",
     story:
       "Caught in a full lunging strike, this samurai extends your incense stick like a reaching blade across a long tray that catches the ash. Dynamic and dramatic — a centrepiece for a calm, deliberate ritual.",
