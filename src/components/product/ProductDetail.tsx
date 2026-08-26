@@ -37,6 +37,23 @@ export function ProductDetail({ product }: { product: Product }) {
             )}
           </div>
 
+          {product.colors && product.colors.length > 0 && (
+            <div className="mt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-mute">Options</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {product.colors.map((c) => (
+                  <span
+                    key={c}
+                    className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-sm text-white/85"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-mute">Tell us which option you&apos;d like in your WhatsApp message.</p>
+            </div>
+          )}
+
           <div className="mt-6 flex flex-wrap gap-3">
             <Button href={orderLink(product.name)} external variant="whatsapp">
               Order on WhatsApp

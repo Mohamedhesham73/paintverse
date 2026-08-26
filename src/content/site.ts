@@ -4,15 +4,15 @@ export const SITE = {
   description:
     "Premium collectibles, DIY kits and limited creations designed for people who love to collect, create and display.",
   url: "https://paintverse.example", // replace with real domain at launch
-  contactEmail: "Esmailahmed266@gmail.com",
+  contactEmail: "printverse266@gmail.com",
   whatsapp: {
-    number: "201002180484", // wa.me format, no + or spaces
-    display: "+20 100 218 0484",
+    number: "201043057484", // wa.me format, no + or spaces
+    display: "+20 104 305 7484",
   },
   socials: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "TikTok", href: "https://tiktok.com/" },
-    { label: "WhatsApp", href: "https://wa.me/201002180484" },
+    { label: "Instagram", href: "https://www.instagram.com/printverse_2" },
+    { label: "Facebook", href: "https://www.facebook.com/share/19RSnpVHtM/" },
+    { label: "TikTok", href: "https://www.tiktok.com/@printverse_1" },
   ],
   nav: [
     { label: "Collections", href: "/collections" },

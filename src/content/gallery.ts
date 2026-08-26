@@ -9,10 +9,11 @@ export interface GalleryItem {
 export const GALLERY: GalleryItem[] = [
   { id: "g1", title: "M3 on the wall", creator: "PaintVerse Studio", image: "/brand/bmw-m3-lifestyle.jpeg", featured: true },
   { id: "g2", title: "Luffy after dark", creator: "PaintVerse Studio", image: "/brand/luffy-lamp.jpeg", featured: true },
-  { id: "g3", title: "Blank & ready", creator: "PaintVerse Studio", image: "/brand/pose-3.png", featured: false },
-  { id: "g4", title: "Pose study I", creator: "PaintVerse Studio", image: "/brand/pose-5.png", featured: false },
-  { id: "g5", title: "Pose study II", creator: "PaintVerse Studio", image: "/brand/pose-2.png", featured: false },
-  { id: "g6", title: "On the bench", creator: "PaintVerse Studio", image: "/brand/pose-7.png", featured: false },
-  { id: "g7", title: "Fresh cast", creator: "PaintVerse Studio", image: "/brand/pose-4.png", featured: false },
-  { id: "g8", title: "Ready to prime", creator: "PaintVerse Studio", image: "/brand/pose-6.png", featured: false },
+  { id: "g3", title: "GT3, graphite", creator: "PaintVerse Studio", image: "/brand/porsche-gt3-lifestyle.jpeg", featured: false },
+  { id: "g4", title: "Night Fury on duty", creator: "PaintVerse Studio", image: "/brand/toothless.png", featured: false },
+  { id: "g5", title: "Samurai smoke", creator: "PaintVerse Studio", image: "/brand/incense3.png", featured: false },
+  { id: "g6", title: "The Monkey King", creator: "PaintVerse Studio", image: "/brand/incense2.png", featured: false },
+  { id: "g7", title: "Bikini Bottom bucks", creator: "PaintVerse Studio", image: "/brand/sponge-visa.png", featured: false },
+  { id: "g8", title: "Bubbles, painted", creator: "PaintVerse Studio", image: "/brand/blue.png", featured: false },
+  { id: "g9", title: "Blank & ready", creator: "PaintVerse Studio", image: "/brand/pose-3.png", featured: false },
 ];
