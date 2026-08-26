@@ -8,8 +8,11 @@ const csp = [
   "font-src 'self' data:",
   "connect-src 'self'",
   "frame-ancestors 'none'",
+  "frame-src 'none'",
+  "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
+  "upgrade-insecure-requests",
 ].join("; ");
 
 const securityHeaders = [
