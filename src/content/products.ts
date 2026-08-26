@@ -197,8 +197,8 @@ export const PRODUCTS: Product[] = [
     blurb: "A laid-back alien and a crashed UFO catch the ash while your incense drifts.",
     story:
       "The most relaxed extraterrestrial in the galaxy reclines on an ash tray while your incense stick smoulders overhead — a crashed saucer on the other end completes the scene. Equal parts desk toy and calming ritual.",
-    heroImage: "/brand/incense.png",
-    images: ["/brand/incense.png"],
+    heroImage: "/brand/incense.jpeg",
+    images: ["/brand/incense.jpeg"],
     specs: [
       { label: "Theme", value: "Alien / UFO" },
       { label: "Type", value: "Incense stick holder" },
