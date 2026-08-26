@@ -9,14 +9,15 @@ type Filter = Category | "All";
 export function CollectionsBrowser() {
   const [filter, setFilter] = useState<Filter>("All");
   const tabs: Filter[] = ["All", ...CATEGORIES];
-  const items = filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter);
+  const inCategory = (p: (typeof PRODUCTS)[number], c: Category) => p.category === c || !!p.also?.includes(c);
+  const items = filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => inCategory(p, filter));
 
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-2">
         {tabs.map((t) => {
           const active = filter === t;
-          const count = t === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => p.category === t).length;
+          const count = t === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => inCategory(p, t)).length;
           return (
             <button
               key={t}

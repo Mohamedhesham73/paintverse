@@ -17,7 +17,8 @@ export interface Package {
 export interface Product {
   slug: string;
   name: string;
-  category: Category;
+  category: Category; // primary category (shown on the card badge)
+  also?: Category[]; // extra categories this product also appears under in filters
   priceEgp: number;
   /** Optional original price shown struck-through (for a discount). */
   compareAtEgp?: number;
@@ -141,6 +142,7 @@ export const PRODUCTS: Product[] = [
     slug: "shadow-lamp",
     name: "Shadow Lamp — Luffy & Zoro",
     category: "Lighting",
+    also: ["Wall Decor"],
     priceEgp: 900,
     tagline: "Cast a Wanted poster on your wall.",
     variants: [
