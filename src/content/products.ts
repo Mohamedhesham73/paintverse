@@ -116,8 +116,8 @@ export const PRODUCTS: Product[] = [
     tagline: "Ships white. You bring the colour.",
     priceNote: "Ships white & unpainted — includes 3 colours of your choice. Paint any of the girls.",
     variants: [
-      { name: "Blossom · Red", images: ["/brand/red.png"] },
-      { name: "Bubbles · Blue", images: ["/brand/blue.png"] },
+      { name: "Blossom · Red", images: ["/brand/red.png", "/brand/red1.png"] },
+      { name: "Bubbles · Blue", images: ["/brand/blue.png", "/brand/blue1.jpeg", "/brand/blue2.jpeg", "/brand/blue3.jpeg"] },
       { name: "Buttercup · Green", images: ["/brand/green.png"] },
     ],
     blurb: "A blank Powerpuff figure that ships pure white — paint Blossom, Bubbles or Buttercup yourself.",
