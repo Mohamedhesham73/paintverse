@@ -124,7 +124,7 @@ export const PRODUCTS: Product[] = [
     story:
       "This one arrives completely white and unpainted — the fun is making it yours. It ships white; click a girl above to preview how she looks painted (red Blossom, blue Bubbles, green Buttercup) — or go completely off-script. It comes with any 3 paint colours of your choice, and our Color Lab shows you how to mix the rest.",
     heroImage: "/brand/red.png",
-    images: ["/brand/red1.png"],
+    images: ["/brand/blue1.jpeg", "/brand/blue2.jpeg", "/brand/blue3.jpeg", "/brand/red1.png"],
     specs: [
       { label: "Type", value: "DIY paint kit" },
       { label: "Finish", value: "Ships white — you paint it" },
@@ -290,7 +290,7 @@ export const PRODUCTS: Product[] = [
     tagline: "Mid-strike, mid-burn.",
     variants: [
       { name: "Black", images: ["/brand/incense4.jpeg"] },
-      { name: "White" },
+      { name: "White", images: ["/brand/incense4white.jpeg"] },
     ],
     blurb: "A samurai lunges into a strike, your incense stick held out like a long blade.",
     story:
