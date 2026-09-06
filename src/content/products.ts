@@ -51,6 +51,7 @@ export const PRODUCTS: Product[] = [
       { name: "BMW M5 · White", images: ["/brand/bmw-m5.jpeg"] },
       { name: "Porsche 911 GT3 · Graphite", images: ["/brand/porsche-gt3-lifestyle.jpeg", "/brand/porsche-gt3.jpeg"] },
       { name: "Lamborghini · Lime", images: ["/brand/lamborghini.jpeg", "/brand/lamborghini1.jpeg"] },
+      { name: "Lamborghini · Orange", images: ["/brand/lamborghini1.jpeg"] },
     ],
     blurb: "A supercar rear captured in 3D — half sculpture, half key holder.",
     story:
