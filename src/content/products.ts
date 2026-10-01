@@ -1,6 +1,6 @@
-export type Category = "Paint Your Own" | "Lighting" | "Wall Decor" | "Accessories" | "Incense";
+export type Category = "Paint Your Own" | "Lighting" | "Wall Decor" | "Accessories" | "Incense" | "Keychains";
 
-export const CATEGORIES: Category[] = ["Paint Your Own", "Wall Decor", "Lighting", "Accessories", "Incense"];
+export const CATEGORIES: Category[] = ["Paint Your Own", "Wall Decor", "Lighting", "Accessories", "Incense", "Keychains"];
 
 export interface Spec {
   label: string;
@@ -416,6 +416,126 @@ export const PRODUCTS: Product[] = [
       { label: "Theme", value: "Frog on a leaf" },
       { label: "Type", value: "Incense stick holder" },
       { label: "Tray", value: "Leaf ash-catcher" },
+      { label: "Material", value: "PLA+ plastic" },
+    ],
+  },
+  {
+    slug: "coffee-cup-keychain",
+    name: "Coffee Cup — Keychain",
+    category: "Keychains",
+    priceEgp: 0, // TODO: price pending
+    tagline: "Your daily cup, in miniature.",
+    blurb: "A tiny takeaway coffee cup keychain, lid and straw included.",
+    story:
+      "A pocket-sized takeaway cup — lid, straw and all — on a sturdy keyring. The little everyday-carry charm for anyone who runs on coffee.",
+    heroImage: "/brand/coffee.jpeg",
+    images: ["/brand/coffee.jpeg", "/brand/coffee1.jpeg"],
+    specs: [
+      { label: "Type", value: "Keychain" },
+      { label: "Design", value: "Takeaway coffee cup" },
+      { label: "Hardware", value: "Metal keyring + clip" },
+      { label: "Material", value: "PLA+ plastic" },
+    ],
+  },
+  {
+    slug: "flexi-wolf-keychain",
+    name: "Flexi Wolf — Keychain",
+    category: "Keychains",
+    priceEgp: 0, // TODO: price pending
+    tagline: "A wiggly little wolf.",
+    blurb: "An articulated flexi wolf keychain that moves in your hand.",
+    story:
+      "Fully articulated, so every segment wiggles — this cute grey wolf is equal parts keychain and fidget toy. Soft, satisfying and hard to put down.",
+    heroImage: "/brand/flexi-wolf-keychain.jpeg",
+    images: ["/brand/flexi-wolf-keychain.jpeg", "/brand/flexi-wolf-keychain1.jpeg", "/brand/flexi-wolf-keychain2.jpeg"],
+    specs: [
+      { label: "Type", value: "Flexi keychain" },
+      { label: "Design", value: "Articulated wolf" },
+      { label: "Hardware", value: "Metal keyring + clip" },
+      { label: "Material", value: "PLA+ plastic" },
+    ],
+  },
+  {
+    slug: "toothless-flexi-keychain",
+    name: "Toothless Flexi — Keychain",
+    category: "Keychains",
+    priceEgp: 0, // TODO: price pending
+    tagline: "An articulated dragon for your keys.",
+    variants: [
+      { name: "Night Fury · Black", images: ["/brand/toothless-keychain.jpeg", "/brand/toothless-keychain1.jpeg"] },
+      { name: "Light Fury · White", images: ["/brand/toothless-keychain-white.jpeg", "/brand/toothless-keychain-white1.jpeg"] },
+    ],
+    blurb: "A fully articulated Toothless (or Light Fury) flexi keychain.",
+    story:
+      "The dragon that wiggles — a fully articulated flexi Toothless on a keyring, with bright eyes and a swishing tail. Pick the black Night Fury or the white Light Fury.",
+    heroImage: "/brand/toothless-keychain.jpeg",
+    images: ["/brand/toothless-keychain.jpeg", "/brand/toothless-keychain1.jpeg"],
+    specs: [
+      { label: "Type", value: "Flexi keychain" },
+      { label: "Characters", value: "Night Fury / Light Fury" },
+      { label: "Hardware", value: "Metal keyring + chain" },
+      { label: "Material", value: "PLA+ plastic" },
+    ],
+  },
+  {
+    slug: "rabbit-flexi-keychain",
+    name: "Flexi Rabbit — Keychain",
+    category: "Keychains",
+    priceEgp: 0, // TODO: price pending
+    tagline: "A bouncy little bunny.",
+    blurb: "An articulated flexi rabbit keychain in soft pastel colours.",
+    story:
+      "A fully articulated bunny that wiggles from ears to tail, finished in soft pastels. Cute, tactile and the perfect bag or keyring charm.",
+    heroImage: "/brand/rabbit-keychain.jpeg",
+    images: ["/brand/rabbit-keychain.jpeg", "/brand/rabbit-keychain1.jpeg", "/brand/rabbit-keychain2.jpeg"],
+    specs: [
+      { label: "Type", value: "Flexi keychain" },
+      { label: "Design", value: "Articulated rabbit" },
+      { label: "Hardware", value: "Metal keyring + clip" },
+      { label: "Material", value: "PLA+ plastic" },
+    ],
+  },
+  {
+    slug: "scream-keychain",
+    name: "Scream / Ghostface — Keychain",
+    category: "Keychains",
+    priceEgp: 0, // TODO: price pending
+    tagline: "A little slasher for your keys.",
+    variants: [
+      { name: "With knife (red)", images: ["/brand/scream-keychain-red.jpeg"] },
+      { name: "Classic (white)", images: ["/brand/scream-keychain-white.jpeg"] },
+    ],
+    blurb: "A chibi Ghostface keychain — horror-cute for your keys or bag.",
+    story:
+      "The iconic Ghostface, shrunk into a chibi keychain. Choose the clean classic or the one with the bloody blade — horror-cute either way.",
+    heroImage: "/brand/scream-keychain.jpeg",
+    images: ["/brand/scream-keychain.jpeg"],
+    specs: [
+      { label: "Type", value: "Keychain" },
+      { label: "Theme", value: "Scream / Ghostface" },
+      { label: "Hardware", value: "Metal keyring + clip" },
+      { label: "Material", value: "PLA+ plastic" },
+    ],
+  },
+  {
+    slug: "batman-chibi",
+    name: "Batman — Chibi Figure / Keychain",
+    category: "Keychains",
+    priceEgp: 0, // TODO: price pending (figure vs keychain?)
+    tagline: "The Dark Knight, pocket-sized.",
+    variants: [
+      { name: "Figure", images: ["/brand/batman.jpeg", "/brand/batman1.jpeg"] },
+      { name: "Keychain", images: ["/brand/batman.jpeg", "/brand/batman1.jpeg"] },
+    ],
+    blurb: "A hand-painted chibi Batman — available as a standalone figure or a keychain.",
+    story:
+      "A chunky little chibi Batman — hand-painted cape and cowl, bat-symbol and gold belt. Keep him as a desk figure or clip him on as a keychain.",
+    heroImage: "/brand/batman.jpeg",
+    images: ["/brand/batman.jpeg", "/brand/batman1.jpeg"],
+    specs: [
+      { label: "Character", value: "Batman (chibi)" },
+      { label: "Available as", value: "Figure or keychain" },
+      { label: "Finish", value: "Hand-painted" },
       { label: "Material", value: "PLA+ plastic" },
     ],
   },
