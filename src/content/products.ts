@@ -49,7 +49,7 @@ export const PRODUCTS: Product[] = [
     variants: [
       { name: "BMW M3 · Racing Green", images: ["/brand/bmw-m3-lifestyle.jpeg", "/brand/bmw-m3.jpeg"] },
       { name: "BMW M5 · White", images: ["/brand/bmw-m5.jpeg"] },
-      { name: "Porsche 911 GT3 · Graphite", images: ["/brand/porsche-gt3-lifestyle.jpeg", "/brand/porsche-gt3.jpeg"] },
+      { name: "Porsche 911 GT3 · Graphite", images: ["/brand/porsche-gt3-1.jpeg", "/brand/porsche-gt3.jpeg", "/brand/porsche-gt3-2.jpeg", "/brand/porsche-gt3-3.jpeg", "/brand/porsche-gt3-4.jpeg"] },
       { name: "Lamborghini · Lime", images: ["/brand/lamborghini.jpeg", "/brand/lamborghini1.jpeg"] },
       { name: "Lamborghini · Orange", images: ["/brand/lamborghini1.jpeg"] },
     ],
@@ -61,7 +61,7 @@ export const PRODUCTS: Product[] = [
       "/brand/bmw-m3-lifestyle.jpeg",
       "/brand/bmw-m3.jpeg",
       "/brand/bmw-m5.jpeg",
-      "/brand/porsche-gt3-lifestyle.jpeg",
+      "/brand/porsche-gt3-1.jpeg",
       "/brand/porsche-gt3.jpeg",
       "/brand/lamborghini.jpeg",
       "/brand/lamborghini1.jpeg",
@@ -177,14 +177,14 @@ export const PRODUCTS: Product[] = [
     priceEgp: 200,
     tagline: "A dragon that holds your phone.",
     variants: [
-      { name: "Night Fury · Black", images: ["/brand/toothless.png"] },
+      { name: "Night Fury · Black", images: ["/brand/toothless.png", "/brand/toothless1.png", "/brand/toothless2.png", "/brand/toothless3.png"] },
       { name: "Light Fury · White", images: ["/brand/light-fury.png"] },
     ],
     blurb: "The Night Fury (and his Light Fury) reimagined as a desk phone stand.",
     story:
       "Toothless curls up on your desk and props your phone at the perfect angle — in landscape for videos or portrait for scrolling. Pick the black Night Fury or the white Light Fury to match your setup.",
     heroImage: "/brand/toothless.png",
-    images: ["/brand/toothless.png", "/brand/light-fury.png"],
+    images: ["/brand/toothless.png", "/brand/toothless1.png", "/brand/toothless2.png", "/brand/toothless3.png", "/brand/light-fury.png"],
     specs: [
       { label: "Characters", value: "Night Fury / Light Fury" },
       { label: "Function", value: "Phone / mobile stand" },
