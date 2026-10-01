@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PRODUCTS, CATEGORIES, type Category } from "@/content/products";
 import { ProductCard } from "./ProductCard";
 
@@ -9,6 +9,18 @@ type Filter = Category | "All";
 export function CollectionsBrowser() {
   const [filter, setFilter] = useState<Filter>("All");
   const tabs: Filter[] = ["All", ...CATEGORIES];
+
+  // Allow deep links like /collections?c=Incense to pre-select a category.
+  useEffect(() => {
+    try {
+      const c = new URLSearchParams(window.location.search).get("c");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (c && (tabs as string[]).includes(c)) setFilter(c as Filter);
+    } catch {
+      /* ignore */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const inCategory = (p: (typeof PRODUCTS)[number], c: Category) => p.category === c || !!p.also?.includes(c);
   const items = filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => inCategory(p, filter));
 

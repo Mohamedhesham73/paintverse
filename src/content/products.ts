@@ -1,6 +1,6 @@
-export type Category = "DIY Kit" | "Lighting" | "Wall Decor" | "Accessories" | "Incense";
+export type Category = "Paint Your Own" | "Lighting" | "Wall Decor" | "Accessories" | "Incense";
 
-export const CATEGORIES: Category[] = ["DIY Kit", "Wall Decor", "Lighting", "Accessories", "Incense"];
+export const CATEGORIES: Category[] = ["Paint Your Own", "Wall Decor", "Lighting", "Accessories", "Incense"];
 
 export interface Spec {
   label: string;
@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "mecha-chameleon",
     name: "Mecha Chameleon",
-    category: "DIY Kit",
+    category: "Paint Your Own",
     priceEgp: 300,
     tagline: "The blank canvas collectible.",
     priceNote: "For every bundle you choose which poses you want and which paint colours you get — then mix for even more.",
@@ -117,7 +117,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "powerpuff-girls",
     name: "Powerpuff Girls — DIY Figure",
-    category: "DIY Kit",
+    category: "Paint Your Own",
     priceEgp: 350,
     tagline: "Ships white. You bring the colour.",
     priceNote: "Ships white & unpainted — includes 3 colours of your choice. Paint any of the girls.",
