@@ -50,10 +50,15 @@ export function ProductDetail({ product }: { product: Product }) {
             </div>
             {product.priceNote && (
               <p className="mt-2 text-sm text-mute">
-                {product.priceNote}{" "}
-                <Link href="/color-lab" className="text-accent-300 underline underline-offset-4">
-                  See the mixing guide
-                </Link>
+                {product.priceNote}
+                {product.category === "Paint Your Own" && (
+                  <>
+                    {" "}
+                    <Link href="/color-lab" className="text-accent-300 underline underline-offset-4">
+                      See the mixing guide
+                    </Link>
+                  </>
+                )}
               </p>
             )}
             {product.packages && product.packages.length > 0 && (

@@ -45,6 +45,7 @@ export const PRODUCTS: Product[] = [
     name: "3D Car — Wall Decor & Key Holder",
     category: "Wall Decor",
     priceEgp: 1100,
+    compareAtEgp: 1400,
     tagline: "Your favourite rear end, on the wall.",
     variants: [
       { name: "BMW M3 · Racing Green", images: ["/brand/bmw-m3-lifestyle.jpeg", "/brand/bmw-m3.jpeg"] },
@@ -174,7 +175,8 @@ export const PRODUCTS: Product[] = [
     slug: "toothless-phone-holder",
     name: "Toothless & Light Fury — Phone Holder",
     category: "Accessories",
-    priceEgp: 200,
+    priceEgp: 300,
+    compareAtEgp: 350,
     tagline: "A dragon that holds your phone.",
     variants: [
       { name: "Night Fury · Black", images: ["/brand/toothless.png", "/brand/toothless1.png", "/brand/toothless2.png", "/brand/toothless3.png"] },
@@ -221,7 +223,8 @@ export const PRODUCTS: Product[] = [
     slug: "stitch-phone-holder",
     name: "Stitch — Phone Holder",
     category: "Accessories",
-    priceEgp: 350,
+    priceEgp: 400,
+    compareAtEgp: 500,
     tagline: "Experiment 626, holding your phone.",
     blurb: "A full-colour Stitch that props your phone at the perfect angle.",
     story:
@@ -257,7 +260,7 @@ export const PRODUCTS: Product[] = [
     slug: "rabbit-phone-holder",
     name: "Rabbit — Phone Holder",
     category: "Accessories",
-    priceEgp: 150,
+    priceEgp: 250,
     tagline: "A sleepy bunny for your desk.",
     blurb: "A chubby little rabbit that cradles your phone while it naps.",
     story:
@@ -347,7 +350,8 @@ export const PRODUCTS: Product[] = [
     slug: "samurai-striking-incense-holder",
     name: "Samurai striking - incense stick holder",
     category: "Incense",
-    priceEgp: 250,
+    priceEgp: 300,
+    compareAtEgp: 350,
     tagline: "Mid-strike, mid-burn.",
     variants: [
       { name: "Black", images: ["/brand/incense4.jpeg"] },
@@ -387,7 +391,8 @@ export const PRODUCTS: Product[] = [
     slug: "hand-incense-holder",
     name: "Hand — Incense Holder",
     category: "Incense",
-    priceEgp: 200,
+    priceEgp: 250,
+    compareAtEgp: 350,
     tagline: "An offering of smoke.",
     blurb: "An elegant sculpted hand holding your incense stick aloft.",
     story:
@@ -406,6 +411,7 @@ export const PRODUCTS: Product[] = [
     name: "Frog — Incense Holder",
     category: "Incense",
     priceEgp: 350,
+    compareAtEgp: 450,
     tagline: "Zen on a lily pad.",
     blurb: "A chilled-out frog lounges on a leaf with your incense stick.",
     story:
@@ -423,7 +429,8 @@ export const PRODUCTS: Product[] = [
     slug: "coffee-cup-keychain",
     name: "Coffee Cup — Keychain",
     category: "Keychains",
-    priceEgp: 0, // TODO: price pending
+    priceEgp: 50,
+    priceNote: "EGP 50 each.",
     tagline: "Your daily cup, in miniature.",
     blurb: "A tiny takeaway coffee cup keychain, lid and straw included.",
     story:
@@ -441,7 +448,8 @@ export const PRODUCTS: Product[] = [
     slug: "flexi-wolf-keychain",
     name: "Flexi Wolf — Keychain",
     category: "Keychains",
-    priceEgp: 0, // TODO: price pending
+    priceEgp: 150,
+    priceNote: "EGP 150 for a pair — available in black, pink or grey.",
     tagline: "A wiggly little wolf.",
     blurb: "An articulated flexi wolf keychain that moves in your hand.",
     story:
@@ -450,7 +458,8 @@ export const PRODUCTS: Product[] = [
     images: ["/brand/flexi-wolf-keychain.jpeg", "/brand/flexi-wolf-keychain1.jpeg", "/brand/flexi-wolf-keychain2.jpeg"],
     specs: [
       { label: "Type", value: "Flexi keychain" },
-      { label: "Design", value: "Articulated wolf" },
+      { label: "Colours", value: "Black / Pink / Grey" },
+      { label: "Sold as", value: "Pair" },
       { label: "Hardware", value: "Metal keyring + clip" },
       { label: "Material", value: "PLA+ plastic" },
     ],
@@ -459,7 +468,8 @@ export const PRODUCTS: Product[] = [
     slug: "toothless-flexi-keychain",
     name: "Toothless Flexi — Keychain",
     category: "Keychains",
-    priceEgp: 0, // TODO: price pending
+    priceEgp: 100,
+    priceNote: "EGP 100 each · EGP 150 for the pair (black + white).",
     tagline: "An articulated dragon for your keys.",
     variants: [
       { name: "Night Fury · Black", images: ["/brand/toothless-keychain.jpeg", "/brand/toothless-keychain1.jpeg"] },
@@ -481,7 +491,8 @@ export const PRODUCTS: Product[] = [
     slug: "rabbit-flexi-keychain",
     name: "Flexi Rabbit — Keychain",
     category: "Keychains",
-    priceEgp: 0, // TODO: price pending
+    priceEgp: 100,
+    priceNote: "EGP 100 each · EGP 150 for a pair.",
     tagline: "A bouncy little bunny.",
     blurb: "An articulated flexi rabbit keychain in soft pastel colours.",
     story:
@@ -499,11 +510,12 @@ export const PRODUCTS: Product[] = [
     slug: "scream-keychain",
     name: "Scream / Ghostface — Keychain",
     category: "Keychains",
-    priceEgp: 0, // TODO: price pending
+    priceEgp: 150,
+    priceNote: "EGP 150 each. Pick your knife colour.",
     tagline: "A little slasher for your keys.",
     variants: [
-      { name: "With knife (red)", images: ["/brand/scream-keychain-red.jpeg"] },
-      { name: "Classic (white)", images: ["/brand/scream-keychain-white.jpeg"] },
+      { name: "Red knife", images: ["/brand/scream-keychain-red.jpeg"] },
+      { name: "White knife", images: ["/brand/scream-keychain-white.jpeg"] },
     ],
     blurb: "A chibi Ghostface keychain — horror-cute for your keys or bag.",
     story:
@@ -521,11 +533,11 @@ export const PRODUCTS: Product[] = [
     slug: "batman-chibi",
     name: "Batman — Chibi Figure / Keychain",
     category: "Keychains",
-    priceEgp: 0, // TODO: price pending (figure vs keychain?)
+    priceEgp: 200,
     tagline: "The Dark Knight, pocket-sized.",
-    variants: [
-      { name: "Figure", images: ["/brand/batman.jpeg", "/brand/batman1.jpeg"] },
-      { name: "Keychain", images: ["/brand/batman.jpeg", "/brand/batman1.jpeg"] },
+    packages: [
+      { name: "Keychain", priceEgp: 200 },
+      { name: "Figure · 12 cm", priceEgp: 450 },
     ],
     blurb: "A hand-painted chibi Batman — available as a standalone figure or a keychain.",
     story:
