@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "@/content/site";
-import { CATEGORIES } from "@/content/products";
+import { VISIBLE_CATEGORIES } from "@/content/products";
 import { contactLink } from "@/lib/whatsapp";
 
 export function Navbar() {
@@ -68,7 +68,7 @@ export function Navbar() {
                         All collections
                       </Link>
                       <div className="my-1 h-px bg-white/10" />
-                      {CATEGORIES.map((c) => (
+                      {VISIBLE_CATEGORIES.map((c) => (
                         <Link
                           key={c}
                           href={`/collections?c=${encodeURIComponent(c)}`}

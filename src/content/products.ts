@@ -541,6 +541,14 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
+/** Products shown on the site. Anything with priceEgp <= 0 is treated as "not priced yet" and hidden. */
+export const VISIBLE_PRODUCTS = PRODUCTS.filter((p) => p.priceEgp > 0);
+
+/** Categories that currently have at least one visible (priced) product. */
+export const VISIBLE_CATEGORIES: Category[] = CATEGORIES.filter((c) =>
+  VISIBLE_PRODUCTS.some((p) => p.category === c || !!p.also?.includes(c)),
+);
+
 export function getProduct(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);
 }
@@ -551,7 +559,7 @@ export function getSpotlight(): Product {
 
 export function relatedProducts(slug: string): Product[] {
   const current = getProduct(slug);
-  const others = PRODUCTS.filter((p) => p.slug !== slug);
+  const others = VISIBLE_PRODUCTS.filter((p) => p.slug !== slug);
   const sameCat = others.filter((p) => p.category === current?.category);
   const rest = others.filter((p) => p.category !== current?.category);
   return [...sameCat, ...rest].slice(0, 2);

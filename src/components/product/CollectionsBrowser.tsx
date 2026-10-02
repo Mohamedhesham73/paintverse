@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PRODUCTS, CATEGORIES, type Category } from "@/content/products";
+import { VISIBLE_PRODUCTS, VISIBLE_CATEGORIES, type Category } from "@/content/products";
 import { ProductCard } from "./ProductCard";
 
 type Filter = Category | "All";
 
 export function CollectionsBrowser() {
   const [filter, setFilter] = useState<Filter>("All");
-  const tabs: Filter[] = ["All", ...CATEGORIES];
+  const tabs: Filter[] = ["All", ...VISIBLE_CATEGORIES];
 
   // Allow deep links like /collections?c=Incense to pre-select a category.
   useEffect(() => {
@@ -21,8 +21,8 @@ export function CollectionsBrowser() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const inCategory = (p: (typeof PRODUCTS)[number], c: Category) => p.category === c || !!p.also?.includes(c);
-  const items = filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => inCategory(p, filter));
+  const inCategory = (p: (typeof VISIBLE_PRODUCTS)[number], c: Category) => p.category === c || !!p.also?.includes(c);
+  const items = filter === "All" ? VISIBLE_PRODUCTS : VISIBLE_PRODUCTS.filter((p) => inCategory(p, filter));
 
   return (
     <div>
@@ -30,7 +30,7 @@ export function CollectionsBrowser() {
         <div className="flex gap-2 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:hidden">
           {tabs.map((t) => {
             const active = filter === t;
-            const count = t === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => inCategory(p, t)).length;
+            const count = t === "All" ? VISIBLE_PRODUCTS.length : VISIBLE_PRODUCTS.filter((p) => inCategory(p, t)).length;
             return (
               <button
                 key={t}

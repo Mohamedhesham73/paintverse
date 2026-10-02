@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { PRODUCTS, CATEGORIES } from "@/content/products";
+import { VISIBLE_PRODUCTS, VISIBLE_CATEGORIES } from "@/content/products";
 import { ProductCard } from "@/components/product/ProductCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
 export function Collections() {
-  const featured = PRODUCTS.slice(0, 6);
+  const featured = VISIBLE_PRODUCTS.slice(0, 6);
   return (
     <section id="collections" className="mx-auto max-w-7xl px-6 py-28">
       <SectionHeading
@@ -23,7 +23,7 @@ export function Collections() {
         >
           All
         </Link>
-        {CATEGORIES.map((c) => (
+        {VISIBLE_CATEGORIES.map((c) => (
           <Link
             key={c}
             href={`/collections?c=${encodeURIComponent(c)}`}
