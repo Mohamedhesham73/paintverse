@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -20,7 +21,9 @@ export default function CollectionsPage() {
           subtitle="Filter by category, and order any piece straight from WhatsApp."
         />
         <div className="mt-14">
-          <CollectionsBrowser />
+          <Suspense fallback={null}>
+            <CollectionsBrowser />
+          </Suspense>
         </div>
       </main>
       <Footer />

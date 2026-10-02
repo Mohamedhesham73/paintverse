@@ -1,28 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { VISIBLE_PRODUCTS, VISIBLE_CATEGORIES, type Category } from "@/content/products";
 import { ProductCard } from "./ProductCard";
 
 type Filter = Category | "All";
 
 export function CollectionsBrowser() {
-  const [filter, setFilter] = useState<Filter>("All");
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const tabs: Filter[] = ["All", ...VISIBLE_CATEGORIES];
 
-  // Allow deep links like /collections?c=Incense to pre-select a category.
-  useEffect(() => {
-    try {
-      const c = new URLSearchParams(window.location.search).get("c");
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (c && (tabs as string[]).includes(c)) setFilter(c as Filter);
-    } catch {
-      /* ignore */
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // Filter is driven by the URL (?c=…), so navigating between categories — from the
+  // navbar dropdown, the homepage pills, or the filter bar — always updates the view.
+  const cParam = searchParams.get("c");
+  const filter: Filter = cParam && (tabs as string[]).includes(cParam) ? (cParam as Filter) : "All";
+
   const inCategory = (p: (typeof VISIBLE_PRODUCTS)[number], c: Category) => p.category === c || !!p.also?.includes(c);
   const items = filter === "All" ? VISIBLE_PRODUCTS : VISIBLE_PRODUCTS.filter((p) => inCategory(p, filter));
+
+  const select = (t: Filter) => {
+    router.replace(t === "All" ? "/collections" : `/collections?c=${encodeURIComponent(t)}`, { scroll: false });
+  };
 
   return (
     <div>
@@ -35,7 +34,7 @@ export function CollectionsBrowser() {
               <button
                 key={t}
                 type="button"
-                onClick={() => setFilter(t)}
+                onClick={() => select(t)}
                 aria-pressed={active}
                 className={`shrink-0 rounded-full border px-4 py-2 text-sm transition ${
                   active
