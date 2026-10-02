@@ -26,26 +26,28 @@ export function CollectionsBrowser() {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center gap-2">
-        {tabs.map((t) => {
-          const active = filter === t;
-          const count = t === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => inCategory(p, t)).length;
-          return (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setFilter(t)}
-              aria-pressed={active}
-              className={`rounded-full border px-4 py-2 text-sm transition ${
-                active
-                  ? "border-accent bg-accent/15 text-white"
-                  : "border-white/12 bg-white/[0.03] text-mute hover:border-white/40 hover:text-white"
-              }`}
-            >
-              {t} <span className="text-xs opacity-60">{count}</span>
-            </button>
-          );
-        })}
+      <div className="sticky top-16 z-30 -mx-6 border-b border-white/[0.06] bg-ink/85 px-6 py-3 backdrop-blur-xl">
+        <div className="flex gap-2 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:hidden">
+          {tabs.map((t) => {
+            const active = filter === t;
+            const count = t === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => inCategory(p, t)).length;
+            return (
+              <button
+                key={t}
+                type="button"
+                onClick={() => setFilter(t)}
+                aria-pressed={active}
+                className={`shrink-0 rounded-full border px-4 py-2 text-sm transition ${
+                  active
+                    ? "border-accent bg-accent/15 text-white"
+                    : "border-white/12 bg-white/[0.03] text-mute hover:border-white/40 hover:text-white"
+                }`}
+              >
+                {t} <span className="text-xs opacity-60">{count}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-3">
